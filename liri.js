@@ -15,7 +15,11 @@ switch(liriReturn) {
     break;
     //Fail
     default:
-    console.log("I'm sorry, but I don't understand.")
+    console.log("I'm sorry, but I don't understand.");
+    break;
+    case "do-what-it-says":
+    doit();
+    break;
 }
 
 function song() {
@@ -41,3 +45,21 @@ function song() {
         }
     });
 }
+
+function doit() {
+	fs.readFile('random.txt', "utf8", function(error, data){
+
+		if (error) {
+    		return console.log(error);
+          }
+         
+		var dataArr = data.split(",");
+
+		
+		if (dataArr[0] === "spotify-this-song") {
+			var songcheck = dataArr[1].slice(1, -1);
+            song(songcheck);
+        }
+
+        });
+    }
