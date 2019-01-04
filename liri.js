@@ -46,6 +46,12 @@ function song() {
     });
 }
 
+// Still need to input functions here for Bands In Town API and OMDB API 
+
+// - 'concert-this'
+// - 'movie-this'
+
+
 function doit() {
 	fs.readFile('random.txt', "utf8", function(error, data){
 
